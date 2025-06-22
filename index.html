@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timych's Bio</title>
+    <link rel="icon" href="png/isla.png" type="image/png">
+    <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --text-color: #e6e6e6;
+            --header-bg: linear-gradient(90deg, #16213e, #0f3460);
+            --content-bg: rgba(30, 30, 60, 0.8);
+            --highlight-color: #6a6fd8;
+            --button-bg: #4e54c8;
+            --button-hover: #6a6fd8;
+            --button-active: #f64c72;
+            --shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .light-theme {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --header-bg: linear-gradient(90deg, #4e54c8, #8f94fb);
+            --content-bg: rgba(255, 255, 255, 0.9);
+            --highlight-color: #4e54c8;
+            --button-bg: #8f94fb;
+            --button-hover: #6a6fd8;
+            --button-active: #f64c72;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        button.active {
+            background: var(--button-active);
+            font-weight: bold;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .content {
+            background: var(--content-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--button-active);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .hardware-list {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .hardware-list li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .hardware-list li:before {
+            content: "•";
+            color: var(--highlight-color);
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌙 Тёмная</button>
+
+    <header>
+        <h1>Timych's Bio</h1>
+    </header>
+
+    <div class="container">
+        <div class="button-group">
+            <button id="ruBtn" class="active">Русский</button>
+            <button id="enBtn">English</button>
+        </div>
+
+        <div class="content" id="ruContent">
+            <h2>Что я такое:</h2>
+            <p><span class="highlight">Ники/прозвища:</span> timych, timuch42, timuch41, тимыч, t1myc4, ifon.jpg, Айла, Isla, ev3nlie</p>
+            
+            <h2>Устройства:</h2>
+            <ul>
+                <li><span class="highlight">Apple iPhone 12 mini 4/64</span> - основа</li>
+                <li>Samsung Galaxy S8 4/64</li>
+                <li>Xiaomi POCO M5 6/128</li>
+                <li>Apple iPhone 7 2/32</li>
+                <li>Amazon Fire Tablet HD 8 (2020) 2/32</li>
+                <li>Xiaomi Redmi 4X 3/32</li>
+            </ul>
+
+            <h2>x86_64 устройства:</h2>
+            <p><span class="highlight">Основной компьютер</span></p>
+            <ul class="hardware-list">
+                <li>Ryzen 5 3600</li>
+                <li>16GB DDR4 3200Mhz</li>
+                <li>GeForce GTX 660 2GB</li>
+                <li>Nvme SSD 250GB</li>
+                <li>Sata SSD 120GB</li>
+                <li>Sata HDD 500GB</li>
+                <li>Gigabyte A520M-K-V2</li>
+            </ul>
+            
+            <p><span class="highlight">Ноутбук (Dell Chromebook 11 3180)</span></p>
+            <ul class="hardware-list">
+                <li>Celeron N3060</li>
+                <li>4GB DDR3 1333Mhz</li>
+                <li>Intel HD Graphics (встроечка)</li>
+                <li>32GB emmc</li>
+            </ul>
+            
+            <h2>Социальные сети:</h2>
+            <ul>
+                <li><span class="highlight">Telegram:</span> @t1myc4</li>
+                <li><span class="highlight">TikTok:</span> ifon.jpg, _isla001</li>
+            </ul>
+            
+            <h2>О себе:</h2>
+            <p>Адекватный сифон юзер, считаю что телефоны на базе андроид лучше. Люблю аниме и аниме тяночек, в особенности Айлу из аниме «пластиковые воспоминания»🤩.</p>
+        </div>
+
+        <div class="content" id="enContent" style="display: none;">
+            <h2>Who I am:</h2>
+            <p><span class="highlight">Nicknames:</span> timych, timuch42, timuch41, тимыч, t1myc4, ifon.jpg, Айла, Isla, ev3nlie</p>
+            
+            <h2>Devices:</h2>
+            <ul>
+                <li><span class="highlight">Apple iPhone 12 mini 4/64</span> - main</li>
+                <li>Samsung Galaxy S8 4/64 (One UI 2.5)</li>
+                <li>Xiaomi POCO M5 6/128</li>
+                <li>Apple iPhone 7 2/32</li>
+                <li>Amazon Fire Tablet HD 8 (2020) 2/32</li>
+                <li>Xiaomi Redmi 4X 3/32</li>
+            </ul>
+
+            <h2>x86_64 devices:</h2>
+            <p><span class="highlight">Main computer</span></p>
+            <ul class="hardware-list">
+                <li>Ryzen 5 3600</li>
+                <li>16GB DDR4 3200Mhz</li>
+                <li>GeForce GTX 660 2GB</li>
+                <li>Nvme SSD 250GB</li>
+                <li>Sata SSD 120GB</li>
+                <li>Sata HDD 500GB</li>
+                <li>Gigabyte A520M-K-V2</li>
+            </ul>
+            
+            <p><span class="highlight">Laptop (Dell Chromebook 11 3180)</span></p>
+            <ul class="hardware-list">
+                <li>Celeron N3060</li>
+                <li>4GB DDR3 1333Mhz</li>
+                <li>Intel HD Graphics (built-in)</li>
+                <li>32GB emmc</li>
+            </ul>
+            
+            <h2>Social media:</h2>
+            <ul>
+                <li><span class="highlight">Tg:</span> @t1myc4</li>
+                <li><span class="highlight">Tt:</span> ifon.jpg, _isla001</li>
+            </ul>
+            
+            <h2>About me:</h2>
+            <p>An adequate siphon user, I think that android-based phones are better. I love anime and anime girls, in particular Isla from anime «Plastic Memories»🤩.</p>
+        </div>
+    </div>
+
+    <script>
+        // Переключение языка
+        const ruBtn = document.getElementById('ruBtn');
+        const enBtn = document.getElementById('enBtn');
+        const ruContent = document.getElementById('ruContent');
+        const enContent = document.getElementById('enContent');
+
+        ruBtn.addEventListener('click', () => {
+            ruContent.style.display = 'block';
+            enContent.style.display = 'none';
+            ruBtn.classList.add('active');
+            enBtn.classList.remove('active');
+        });
+
+        enBtn.addEventListener('click', () => {
+            ruContent.style.display = 'none';
+            enContent.style.display = 'block';
+            ruBtn.classList.remove('active');
+            enBtn.classList.add('active');
+        });
+
+        // Переключение темы
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+            themeToggle.textContent = isLight ? "🌞 Светлая" : "🌙 Тёмная";
+        });
+    </script>
+</body>
+</html>
