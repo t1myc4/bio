@@ -150,7 +150,7 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle">🌙 Тёмная</button>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
 
     <header>
         <h1>Timych's Bio</h1>
@@ -242,8 +242,8 @@
             
             <h2>Social media:</h2>
             <ul>
-                <li><span class="highlight">Tg:</span> @t1myc4</li>
-                <li><span class="highlight">Tt:</span> ifon.jpg, _isla001</li>
+                <li><span class="highlight">Telegram:</span> @t1myc4</li>
+                <li><span class="highlight">TikTok:</span> ifon.jpg, _isla001</li>
             </ul>
             
             <h2>About me:</h2>
@@ -252,7 +252,6 @@
     </div>
 
     <script>
-        // Переключение языка
         const ruBtn = document.getElementById('ruBtn');
         const enBtn = document.getElementById('enBtn');
         const ruContent = document.getElementById('ruContent');
@@ -272,14 +271,13 @@
             enBtn.classList.add('active');
         });
 
-        // Переключение темы
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('light-theme');
             const isLight = body.classList.contains('light-theme');
-            themeToggle.textContent = isLight ? "🌞 Светлая" : "🌙 Тёмная";
+            themeToggle.textContent = isLight ? "☀" : "🌙";
         });
     </script>
 </body>
