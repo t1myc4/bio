@@ -434,9 +434,10 @@
                 <li>Amazon Fire Tablet HD 8 (2020) 2/32</li>
                 <li>Xiaomi Redmi 4X 2/16</li>
                 <li>Xiaomi Redmi Note 8 4/64</li>
-                <li>Xiaomi Redmi 3S 3/32</li>
+                <li>Xiaomi Redmi 7A 2/16</li>
                 <li>Apple iPhone 5 1/16</li>
                 <li>Apple iPad 4th 1/16</li>
+                <li>Samsung Galaxy Note 3 3/32</li>
             </ul>
 
             <h2>x86_64 устройства:</h2>
@@ -481,9 +482,12 @@
                 <li>Amazon Fire Tablet HD 8 (2020) 2/32</li>
                 <li>Xiaomi Redmi 4X 2/16</li>
                 <li>Xiaomi Redmi Note 8 4/64</li>
-                <li>Xiaomi Redmi 3S 3/32</li>
+                <li>Xiaomi Redmi 7A 2/16</li>
                 <li>Apple iPhone 5 1/16</li>
                 <li>Apple iPad 4th 1/16</li>
+                <li>Samsung Galaxy Note 3 3/32</li>
+                
+                
             </ul>
 
             <h2>x86_64 devices:</h2>
@@ -527,7 +531,6 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Случайные размеры и позиции
                 const size = Math.random() * 10 + 5;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
@@ -576,7 +579,6 @@
                 const isLight = body.classList.contains('light-theme');
                 themeToggle.textContent = isLight ? "☀" : "🌙";
                 
-                // Пересоздаем частицы при смене темы для лучшего визуального соответствия
                 document.getElementById('particles').innerHTML = '';
                 createParticles();
             });
