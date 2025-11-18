@@ -5,34 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timych's Bio</title>
     <link rel="icon" href="png/isla.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #1a1a2e;
-            --text-color: #e6e6e6;
-            --header-bg: linear-gradient(90deg, #16213e, #0f3460);
-            --content-bg: rgba(30, 30, 60, 0.8);
-            --highlight-color: #6a6fd8;
-            --button-bg: #4e54c8;
-            --button-hover: #6a6fd8;
-            --button-active: #f64c72;
-            --shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary: #6750a4;
+            --on-primary: #ffffff;
+            --primary-container: #eaddff;
+            --on-primary-container: #21005d;
+            --secondary: #625b71;
+            --on-secondary: #ffffff;
+            --secondary-container: #e8def8;
+            --on-secondary-container: #1d192b;
+            --surface: #fef7ff;
+            --on-surface: #1d1b20;
+            --surface-variant: #e7e0ec;
+            --on-surface-variant: #49454f;
+            --outline: #79747e;
+            --shadow: #000000;
+            --surface-1: #fef7ff;
+            --surface-2: #fcf8ff;
+            --surface-3: #faf5ff;
+            --surface-4: #f9f3ff;
+            --surface-5: #f7f1ff;
         }
 
-        .light-theme {
-            --bg-color: #f5f5f5;
-            --text-color: #333;
-            --header-bg: linear-gradient(90deg, #4e54c8, #8f94fb);
-            --content-bg: rgba(255, 255, 255, 0.9);
-            --highlight-color: #4e54c8;
-            --button-bg: #8f94fb;
-            --button-hover: #6a6fd8;
-            --button-active: #f64c72;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.2);
+        .dark-theme {
+            --primary: #d0bcff;
+            --on-primary: #381e72;
+            --primary-container: #4f378b;
+            --on-primary-container: #eaddff;
+            --secondary: #ccc2dc;
+            --on-secondary: #332d41;
+            --secondary-container: #4a4458;
+            --on-secondary-container: #e8def8;
+            --surface: #141218;
+            --on-surface: #e6e1e5;
+            --surface-variant: #49454f;
+            --on-surface-variant: #cac4d0;
+            --outline: #938f99;
+            --shadow: #000000;
+            --surface-1: #141218;
+            --surface-2: #1a171e;
+            --surface-3: #1f1c23;
+            --surface-4: #231f27;
+            --surface-5: #26232b;
         }
 
         * {
@@ -42,87 +58,29 @@
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Google Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface);
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            transition: all 0.5s ease;
-            overflow-x: hidden;
-            position: relative;
+            transition: all 0.3s ease;
             min-height: 100vh;
         }
 
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.5;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
-            animation: gradientShift 15s ease-in-out infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1) rotate(180deg);
-                opacity: 0.7;
-            }
-        }
-
         header {
-            background: var(--header-bg);
-            color: #fff;
+            background: var(--primary);
+            color: var(--on-primary);
             text-align: center;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            padding: 3rem 1.5rem;
             position: relative;
             overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: translateX(-100%);
-            animation: shine 6s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            20% { transform: translateX(100%); }
-            100% { transform: translateX(100%); }
         }
 
         h1 {
             margin: 0;
             font-size: 2.8rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(45deg, #fff, #a5b4fc, #c7d2fe);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientText 3s ease infinite;
-        }
-
-        @keyframes gradientText {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            font-weight: 500;
         }
 
         .container {
@@ -140,80 +98,53 @@
         }
 
         button {
-            background: var(--button-bg);
-            color: white;
+            background: var(--primary);
+            color: var(--on-primary);
             border: none;
             padding: 0.9rem 1.8rem;
             font-size: 1rem;
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.2s ease;
             font-weight: 500;
-        }
-
-        button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s ease;
-        }
-
-        button:hover::before {
-            left: 100%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         button:hover {
-            background: var(--button-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
         }
 
         button.active {
-            background: var(--button-active);
-            font-weight: 600;
-            box-shadow: 0 0 15px rgba(246, 76, 114, 0.5);
+            background: var(--primary-container);
+            color: var(--on-primary-container);
         }
 
         .theme-toggle {
             position: fixed;
             top: 1.5rem;
             right: 1.5rem;
-            background: var(--button-bg);
-            color: white;
+            background: var(--primary);
+            color: var(--on-primary);
             border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
+            padding: 0.8rem;
+            border-radius: 50%;
             cursor: pointer;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            background: rgba(78, 84, 200, 0.8);
-        }
-
-        .light-theme .theme-toggle {
-            background: rgba(143, 148, 251, 0.8);
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(15deg) scale(1.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .content {
-            background: var(--content-bg);
+            background: var(--surface-1);
             padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+            border-radius: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             margin-bottom: 2.5rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--surface-variant);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s forwards;
@@ -228,16 +159,15 @@
         }
 
         .content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         h2 {
-            color: var(--button-active);
-            border-bottom: 2px solid var(--highlight-color);
+            color: var(--primary);
             padding-bottom: 0.7rem;
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            font-weight: 500;
             position: relative;
             display: inline-block;
         }
@@ -245,17 +175,12 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--button-active), var(--highlight-color));
-            animation: underlineExpand 1.5s forwards;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes underlineExpand {
-            to { width: 100%; }
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         ul {
@@ -264,37 +189,12 @@
 
         li {
             margin-bottom: 0.8rem;
-            transition: transform 0.3s ease;
             padding-left: 0.5rem;
         }
 
-        li:hover {
-            transform: translateX(5px);
-        }
-
         .highlight {
-            color: var(--highlight-color);
-            font-weight: 600;
-            position: relative;
-            display: inline-block;
-        }
-
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-
-        .highlight:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+            color: var(--primary);
+            font-weight: 500;
         }
 
         .hardware-list {
@@ -310,15 +210,11 @@
         }
 
         .hardware-list li:before {
-            content: "➤";
-            color: var(--highlight-color);
+            content: "•";
+            color: var(--primary);
             position: absolute;
             left: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .hardware-list li:hover:before {
-            transform: translateX(5px);
+            font-size: 1.5rem;
         }
 
         p {
@@ -326,7 +222,29 @@
             line-height: 1.7;
         }
 
-        
+        .color-picker {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--surface-variant);
+            transition: transform 0.2s ease;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.2rem;
@@ -348,7 +266,12 @@
             .theme-toggle {
                 top: 1rem;
                 right: 1rem;
-                padding: 0.5rem 1rem;
+                padding: 0.6rem;
+            }
+            
+            .color-picker {
+                bottom: 1rem;
+                right: 1rem;
             }
         }
 
@@ -369,48 +292,18 @@
                 font-size: 1.5rem;
             }
         }
-
-        
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(106, 111, 216, 0.3);
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100vw) rotate(360deg);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-    <div class="particles" id="particles"></div>
-
     <button class="theme-toggle" id="themeToggle">🌙</button>
+    
+    <div class="color-picker" id="colorPicker">
+        <div class="color-option" style="background-color: #6750a4;" data-color="#6750a4"></div>
+        <div class="color-option" style="background-color: #006a6b;" data-color="#006a6b"></div>
+        <div class="color-option" style="background-color: #006c53;" data-color="#006c53"></div>
+        <div class="color-option" style="background-color: #8c4350;" data-color="#8c4350"></div>
+        <div class="color-option" style="background-color: #725a00;" data-color="#725a00"></div>
+    </div>
 
     <header>
         <h1>Timych's Bio</h1>
@@ -467,7 +360,7 @@
             </ul>
             
             <h2>О себе:</h2>
-            <p>НЕ Течтокер, адекватный сифон юзер, считаю что флагманские телефоны на андроиде лучше. Люблю аниме и аниме тяночек, в особенности Айлу из аниме «пластиковые воспоминания»🤩.</p>
+            <p>НЕ Течтокер. Люблю аниме и аниме тяночек, в особенности Айлу из аниме «пластиковые воспоминания»🤩.</p>
         </div>
 
         <div class="content" id="enContent" style="display: none;">
@@ -486,8 +379,6 @@
                 <li>Apple iPhone 5 1/16</li>
                 <li>Apple iPad 4th 1/16</li>
                 <li>Samsung Galaxy Note 3 3/32</li>
-                
-                
             </ul>
 
             <h2>x86_64 devices:</h2>
@@ -517,41 +408,12 @@
             </ul>
             
             <h2>About me:</h2>
-            <p>NOT Techtoker, an adequate siphon user, I think that android-based phones are better. I love anime and anime girls, in particular Isla from anime «Plastic Memories»🤩.</p>
+            <p>NOT Techtoker. I love anime and anime girls, in particular Isla from anime «Plastic Memories»🤩.</p>
         </div>
     </div>
 
     <script>
-        
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 10 + 5;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const duration = Math.random() * 10 + 15;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}vw`;
-                particle.style.top = `${posY}vh`;
-                particle.style.animationDelay = `${delay}s`;
-                particle.style.animationDuration = `${duration}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        
         document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            
             const ruBtn = document.getElementById('ruBtn');
             const enBtn = document.getElementById('enBtn');
             const ruContent = document.getElementById('ruContent');
@@ -575,15 +437,65 @@
             const body = document.body;
 
             themeToggle.addEventListener('click', () => {
-                body.classList.toggle('light-theme');
-                const isLight = body.classList.contains('light-theme');
-                themeToggle.textContent = isLight ? "☀" : "🌙";
-                
-                document.getElementById('particles').innerHTML = '';
-                createParticles();
+                body.classList.toggle('dark-theme');
+                const isDark = body.classList.contains('dark-theme');
+                themeToggle.textContent = isDark ? "☀" : "🌙";
             });
+
+            // Color picker functionality
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const color = option.getAttribute('data-color');
+                    document.documentElement.style.setProperty('--primary', color);
+                    
+                    // Generate complementary colors based on the selected primary
+                    const complementaryColors = generateComplementaryColors(color);
+                    document.documentElement.style.setProperty('--primary-container', complementaryColors.container);
+                    document.documentElement.style.setProperty('--on-primary-container', complementaryColors.onContainer);
+                });
+            });
+
+            function generateComplementaryColors(primaryColor) {
+                // Simple complementary color generation
+                // In a real implementation, you would use a more sophisticated algorithm
+                const isDark = body.classList.contains('dark-theme');
+                
+                if (isDark) {
+                    return {
+                        container: lightenColor(primaryColor, 30),
+                        onContainer: '#eaddff'
+                    };
+                } else {
+                    return {
+                        container: lightenColor(primaryColor, 80),
+                        onContainer: darkenColor(primaryColor, 40)
+                    };
+                }
+            }
+
+            function lightenColor(color, percent) {
+                const num = parseInt(color.replace("#", ""), 16);
+                const amt = Math.round(2.55 * percent);
+                const R = (num >> 16) + amt;
+                const G = (num >> 8 & 0x00FF) + amt;
+                const B = (num & 0x0000FF) + amt;
+                return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+                    (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+                    (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+            }
+
+            function darkenColor(color, percent) {
+                const num = parseInt(color.replace("#", ""), 16);
+                const amt = Math.round(2.55 * percent);
+                const R = (num >> 16) - amt;
+                const G = (num >> 8 & 0x00FF) - amt;
+                const B = (num & 0x0000FF) - amt;
+                return "#" + (0x1000000 + (R > 0 ? R : 0) * 0x10000 +
+                    (G > 0 ? G : 0) * 0x100 +
+                    (B > 0 ? B : 0)).toString(16).slice(1);
+            }
         });
     </script>
 </body>
 </html>
-
