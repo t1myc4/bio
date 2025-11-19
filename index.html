@@ -437,21 +437,6 @@
                 enBtn.classList.add('active');
             });
 
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-
-            body.classList.add('dark-theme');
-            themeToggle.textContent = "☀";
-
-            themeToggle.addEventListener('click', () => {
-                body.classList.toggle('dark-theme');
-                body.classList.toggle('light-theme');
-                const isDark = body.classList.contains('dark-theme');
-                themeToggle.textContent = isDark ? "☀" : "🌙";
-                
-                updateColorsForTheme(isDark);
-            });
-
             const colorOptions = document.querySelectorAll('.color-option');
             colorOptions.forEach(option => {
                 option.addEventListener('click', () => {
@@ -514,4 +499,5 @@
     </script>
 </body>
 </html>
+
 
