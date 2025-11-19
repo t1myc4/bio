@@ -29,28 +29,6 @@
             --surface-5: #26232b;
         }
 
-        .light-theme {
-            --primary: #6750a4;
-            --on-primary: #ffffff;
-            --primary-container: #eaddff;
-            --on-primary-container: #21005d;
-            --secondary: #625b71;
-            --on-secondary: #ffffff;
-            --secondary-container: #e8def8;
-            --on-secondary-container: #1d192b;
-            --surface: #fef7ff;
-            --on-surface: #1d1b20;
-            --surface-variant: #e7e0ec;
-            --on-surface-variant: #49454f;
-            --outline: #79747e;
-            --shadow: #000000;
-            --surface-1: #fef7ff;
-            --surface-2: #fcf8ff;
-            --surface-3: #faf5ff;
-            --surface-4: #f9f3ff;
-            --surface-5: #f7f1ff;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -122,24 +100,6 @@
         button.active {
             background: var(--primary-container);
             color: var(--on-primary-container);
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--primary);
-            color: var(--on-primary);
-            border: none;
-            padding: 0.8rem;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .content {
@@ -267,12 +227,6 @@
                 font-size: 0.9rem;
             }
             
-            .theme-toggle {
-                top: 1rem;
-                right: 1rem;
-                padding: 0.6rem;
-            }
-            
             .color-picker {
                 bottom: 1rem;
                 right: 1rem;
@@ -298,9 +252,7 @@
         }
     </style>
 </head>
-<body class="dark-theme">
-    <button class="theme-toggle" id="themeToggle">☀</button>
-    
+<body>
     <div class="color-picker" id="colorPicker">
         <div class="color-option" style="background-color: #d0bcff;" data-color="#d0bcff"></div>
         <div class="color-option" style="background-color: #80cbc4;" data-color="#80cbc4"></div>
@@ -444,34 +396,18 @@
                     document.documentElement.style.setProperty('--primary', color);
                     
                     // Generate complementary colors based on the selected primary
-                    const isDark = body.classList.contains('dark-theme');
-                    const complementaryColors = generateComplementaryColors(color, isDark);
+                    const complementaryColors = generateComplementaryColors(color);
                     
                     document.documentElement.style.setProperty('--primary-container', complementaryColors.container);
                     document.documentElement.style.setProperty('--on-primary-container', complementaryColors.onContainer);
                 });
             });
 
-            function generateComplementaryColors(primaryColor, isDark) {
-                if (isDark) {
-                    return {
-                        container: darkenColor(primaryColor, 20),
-                        onContainer: lightenColor(primaryColor, 80)
-                    };
-                } else {
-                    return {
-                        container: lightenColor(primaryColor, 80),
-                        onContainer: darkenColor(primaryColor, 40)
-                    };
-                }
-            }
-
-            function updateColorsForTheme(isDark) {
-                const currentPrimary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-                const complementaryColors = generateComplementaryColors(currentPrimary, isDark);
-                
-                document.documentElement.style.setProperty('--primary-container', complementaryColors.container);
-                document.documentElement.style.setProperty('--on-primary-container', complementaryColors.onContainer);
+            function generateComplementaryColors(primaryColor) {
+                return {
+                    container: darkenColor(primaryColor, 20),
+                    onContainer: lightenColor(primaryColor, 80)
+                };
             }
 
             function lightenColor(color, percent) {
@@ -499,5 +435,3 @@
     </script>
 </body>
 </html>
-
-
