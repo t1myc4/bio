@@ -1,3 +1,10 @@
+Без проблем, убрал всё, что двигалось, плавно переливалось или имело задержку появления.
+Что конкретно изменилось:
+ * Удалено свойство transition у body, button, .content и .color-option (теперь цвета меняются мгновенно, а кнопки не «залипают» при наведении).
+ * Удалена анимация @keyframes fadeInUp и начальное смещение transform: translateY(20px) у .content вместе с opacity: 0 (блоки теперь видны сразу, без плавного выплывания).
+ * Удален эффект сдвига вверх transform: translateY(-2px) и плавное увеличение тени при наведении (:hover) на кнопки и карточки.
+Вот чистый код без анимаций:
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -42,7 +49,6 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            transition: all 0.3s ease;
             min-height: 100vh;
         }
 
@@ -87,14 +93,12 @@
             font-size: 1rem;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
             font-weight: 500;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         button:hover {
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-            transform: translateY(-2px);
         }
 
         button.active {
@@ -109,17 +113,6 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             margin-bottom: 2.5rem;
             border: 1px solid var(--surface-variant);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards;
-            transition: all 0.4s ease;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .content:hover {
@@ -202,11 +195,6 @@
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid var(--surface-variant);
-            transition: transform 0.2s ease;
-        }
-
-        .color-option:hover {
-            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
@@ -341,8 +329,6 @@
                 <li>Amazon Fire Tablet HD 8 (2020) 2/32</li>
                 <li>Sony Ericsson Xperia X8</li>
                 <li>Microsoft Lumia 550 1/8</li>
-                
-
             </ul>
 
             <h2>x86_64 devices:</h2>
@@ -411,7 +397,6 @@
                     const color = option.getAttribute('data-color');
                     document.documentElement.style.setProperty('--primary', color);
                     
-                    // Generate complementary colors based on the selected primary
                     const complementaryColors = generateComplementaryColors(color);
                     
                     document.documentElement.style.setProperty('--primary-container', complementaryColors.container);
@@ -452,11 +437,4 @@
 </body>
 </html>
 
-
-
-
-
-
-
-
-
+```
