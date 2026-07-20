@@ -272,6 +272,28 @@
         }
     </style>
 </head>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        // Проверка, чтобы не отправлять уведомления при каждой перезагрузке в одной сессии
+        if (sessionStorage.getItem('visited')) return;
+
+        // Замените URL на адрес вашего Cloudflare Worker
+        const WORKER_URL = 'https://tgbot.islalovesicecream.workers.dev/';
+
+        try {
+            await fetch(WORKER_URL, {
+                method: 'POST',
+            });
+            
+            sessionStorage.setItem('visited', 'true');
+        } catch (e) {
+            console.error('Analytics error:', e);
+        }
+    });
+
+</script>
+
 <body>
     <div class="color-picker" id="colorPicker">
         <div class="color-option" style="background-color: #d0bcff;" data-color="#d0bcff"></div>
