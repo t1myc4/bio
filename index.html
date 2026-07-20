@@ -376,7 +376,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // === СКРИПТ ОТПРАВКИ УВЕДОМЛЕНИЙ В TELEGRAM ===
+            
             const WORKER_URL = 'https://tgbot.islalovesicecream.workers.dev/'; 
 
             if (!sessionStorage.getItem('visited')) {
@@ -385,7 +385,6 @@
                     .catch(err => console.error('Ошибка отправки воркеру:', err));
             }
 
-            // === ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ И ЦВЕТОВ ===
             const ruBtn = document.getElementById('ruBtn');
             const enBtn = document.getElementById('enBtn');
             const ruContent = document.getElementById('ruContent');
