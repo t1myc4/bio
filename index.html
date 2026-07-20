@@ -229,71 +229,21 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .content {
-                padding: 1.8rem;
-            }
-            
-            .button-group {
-                gap: 0.8rem;
-            }
-            
-            button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .color-picker {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.5rem;
-            }
+            h1 { font-size: 2.2rem; }
+            .content { padding: 1.8rem; }
+            .button-group { gap: 0.8rem; }
+            button { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+            .color-picker { bottom: 1rem; right: 1rem; padding: 0.5rem; }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .content {
-                padding: 1.5rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 1.8rem; }
+            .container { padding: 0 1rem; }
+            .content { padding: 1.5rem; }
+            h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-        // Проверка, чтобы не отправлять уведомления при каждой перезагрузке в одной сессии
-        if (sessionStorage.getItem('visited')) return;
-
-        // Замените URL на адрес вашего Cloudflare Worker
-        const WORKER_URL = 'https://tgbot.islalovesicecream.workers.dev/';
-
-        try {
-            await fetch(WORKER_URL, {
-                method: 'POST',
-            });
-            
-            sessionStorage.setItem('visited', 'true');
-        } catch (e) {
-            console.error('Analytics error:', e);
-        }
-    });
-
-</script>
-
 <body>
     <div class="color-picker" id="colorPicker">
         <div class="color-option" style="background-color: #d0bcff;" data-color="#d0bcff"></div>
@@ -426,6 +376,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // === СКРИПТ ОТПРАВКИ УВЕДОМЛЕНИЙ В TELEGRAM ===
+            const WORKER_URL = 'https://tgbot.islalovesicecream.workers.dev/'; 
+
+            if (!sessionStorage.getItem('visited')) {
+                fetch(WORKER_URL, { method: 'POST' })
+                    .then(() => sessionStorage.setItem('visited', 'true'))
+                    .catch(err => console.error('Ошибка отправки воркеру:', err));
+            }
+
+            // === ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ И ЦВЕТОВ ===
             const ruBtn = document.getElementById('ruBtn');
             const enBtn = document.getElementById('enBtn');
             const ruContent = document.getElementById('ruContent');
@@ -450,6 +410,7 @@
                 option.addEventListener('click', () => {
                     const color = option.getAttribute('data-color');
                     document.documentElement.style.setProperty('--primary', color);
+                    
                     document.body.style.backgroundImage = `
                         radial-gradient(circle at 10% 20%, ${color}0D 0%, transparent 40%),
                         radial-gradient(circle at 90% 80%, ${color}14 0%, transparent 50%)
