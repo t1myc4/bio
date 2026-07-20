@@ -35,7 +35,6 @@
         body {
             font-family: 'Google Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--surface);
-            /* Плавный "жидкий" градиент на фоне, меняющийся в зависимости от выбранного цвета */
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(208, 188, 255, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(208, 188, 255, 0.08) 0%, transparent 50%);
@@ -57,14 +56,12 @@
             overflow: hidden;
             background-image: url('png/isla1.jpg');
             background-size: cover;
-            /* Изменено позиционирование на top center, чтобы изображение прижималось к верху */
             background-position: top center;
             background-blend-mode: overlay;
             border-bottom: 1px solid var(--glass-border);
             backdrop-filter: blur(5px);
         }
 
-        /* Эффект свечения для текста заголовка */
         h1 {
             margin: 0;
             font-size: 3rem;
@@ -88,7 +85,6 @@
             flex-wrap: wrap;
         }
 
-        /* Стеклянные интерактивные кнопки */
         button {
             background: rgba(255, 255, 255, 0.05);
             color: var(--on-surface);
@@ -116,7 +112,6 @@
             box-shadow: 0 4px 15px rgba(208, 188, 255, 0.35);
         }
 
-        /* Карточка с эффектом Glassmorphism ("жидкое стекло") */
         .content {
             background: var(--glass-bg);
             backdrop-filter: blur(16px) saturate(120%);
@@ -203,7 +198,6 @@
             line-height: 1.7;
         }
 
-        /* Стильный Color Picker */
         .color-picker {
             position: fixed;
             bottom: 1.5rem;
@@ -434,8 +428,6 @@
                 option.addEventListener('click', () => {
                     const color = option.getAttribute('data-color');
                     document.documentElement.style.setProperty('--primary', color);
-                    
-                    // Обновляем "жидкий" градиент фона под текущий выбранный цвет
                     document.body.style.backgroundImage = `
                         radial-gradient(circle at 10% 20%, ${color}0D 0%, transparent 40%),
                         radial-gradient(circle at 90% 80%, ${color}14 0%, transparent 50%)
